@@ -11,12 +11,12 @@ app.get('/', function (req, res) {
   var system = useragent['user-agent'].match(/\(([^()]+)\)/)
   var result = {}
   var ip = ''
-  if (ip) {
-    var list = ip.split(",")
-    ip = list[list.length-1]
-  } else {
-    ip = req.connection.remoteAddress.match(/[^::ffff:](\d+.+)/)
-  }
+  // if (ip) {
+  //   var list = ip.split(",")
+  //   ip = list[list.length-1]
+  // } else {
+  //   ip = req.connection.remoteAddress.match(/[^::ffff:](\d+.+)/)
+  // }
     result.ipaddress = ip[0]
     result.language = lang[0]
     result.software = system[0].substring(1, system[0].length - 1)
