@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
   var lang = useragent['accept-language'].match(/[a-zA-Z]{2}-[a-zA-Z]{1}[^;]/)
   var system = useragent['user-agent'].match(/\(([^()]+)\)/)
   var result = {}
-  // console.log(system[0].substring(1,system[0].length-1))
+  console.log(req.connection.remoteAddress)
   if (!useragent) {
     result.ip = null
     result.language = null
