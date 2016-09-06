@@ -10,16 +10,18 @@ app.get('/', function (req, res) {
   var lang = useragent['accept-language'].match(/[a-zA-Z]{2}-[a-zA-Z]{1}[^;]/)
   var system = useragent['user-agent'].match(/\(([^()]+)\)/)
   var result = {}
-  var ip = ''
+  console.log(getIP)
+  console.log(ip)
+  // var ip = ''
   // if (ip) {
   //   var list = ip.split(",")
   //   ip = list[list.length-1]
   // } else {
   //   ip = req.connection.remoteAddress.match(/[^::ffff:](\d+.+)/)
   // }
-    result.ipaddress = ip
-    result.language = lang[0]
-    result.software = system[0].substring(1, system[0].length - 1)
+  result.ipaddress = ip
+  result.language = lang[0]
+  result.software = system[0].substring(1, system[0].length - 1)
   res.send(JSON.stringify(result))
 })
 
