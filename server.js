@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
   // } else {
   //   ip = req.connection.remoteAddress.match(/[^::ffff:](\d+.+)/)
   // }
-    result.ipaddress = ip[0]
+    result.ipaddress = ip
     result.language = lang[0]
     result.software = system[0].substring(1, system[0].length - 1)
   res.send(JSON.stringify(result))
