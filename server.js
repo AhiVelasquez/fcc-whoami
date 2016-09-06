@@ -5,14 +5,14 @@ var port = process.env.PORT || 3000
 
 app.get('/', function (req, res) {
   var useragent = req.headers
-  var heroku = req.headers['X-Forwarded-For']
+  var ip = req.headers['x-forwarded-for']
   // .match(/[^::ffff:](\d+.+)/)
   var lang = useragent['accept-language'].match(/[a-zA-Z]{2}-[a-zA-Z]{1}[^;]/)
   var system = useragent['user-agent'].match(/\(([^()]+)\)/)
   var result = {}
   var ip = ''
-  if (heroku) {
-    var list = ipAddr.split(",")
+  if (ip) {
+    var list = ip.split(",")
     ip = list[list.length-1]
   } else {
     ip = req.connection.remoteAddress.match(/[^::ffff:](\d+.+)/)
