@@ -1,6 +1,5 @@
 var express = require('express')
 var app = express()
-var getIP = require('ipware')().get_ip
 var port = process.env.PORT || 3000
 
 app.get('/', function (req, res) {
@@ -10,15 +9,13 @@ app.get('/', function (req, res) {
   var lang = useragent['accept-language'].match(/[a-zA-Z]{2}-[a-zA-Z]{1}[^;]/)
   var system = useragent['user-agent'].match(/\(([^()]+)\)/)
   var result = {}
-  console.log(getIP)
-  console.log(ip)
-  // var ip = ''
-  // if (ip) {
-  //   var list = ip.split(",")
-  //   ip = list[list.length-1]
-  // } else {
-  //   ip = req.connection.remoteAddress.match(/[^::ffff:](\d+.+)/)
-  // }
+  if (ip) {
+    var list = ip.split(',')
+    ip = list[list.length - 1]
+  } else {
+    ip = req.connection.remoteAddress.match(/[^::ffff:](\d+.+)/)
+    ip = ip[0]
+  }
   result.ipaddress = ip
   result.language = lang[0]
   result.software = system[0].substring(1, system[0].length - 1)
