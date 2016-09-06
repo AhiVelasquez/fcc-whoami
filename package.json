@@ -1,0 +1,17 @@
+{
+  "name": "requestheader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "AhiVelasquez",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "jquery": "^3.1.0",
+    "moment": "^2.14.1",
+    "url-parse": "^1.1.3"
+  }
+}
